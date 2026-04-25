@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>HFD Vision AI | Advanced Intelligence System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #ffffff; color: #000000; scroll-behavior: smooth; }
+        .gradient-red { background: linear-gradient(135deg, #e63946, #ff4d4d); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .btn-red { background: linear-gradient(95deg, #e63946, #ff4d4d); transition: all 0.3s; color: white; }
+        .card { background: rgba(0, 0, 0, 0.03); border-radius: 1.5rem; border: 1px solid rgba(230, 57, 70, 0.2); transition: all 0.3s; padding: 1.5rem; }
+        .card:hover { border-color: #e63946; transform: translateY(-6px); box-shadow: 0 20px 30px -15px rgba(0,0,0,0.1); }
+        .stat-number { font-size: 3rem; font-weight: 800; background: linear-gradient(135deg, #e63946, #ff4d4d); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .about-img { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid #e63946; margin: 0 auto 1rem auto; display: block; }
+        .service-img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 1rem; margin-bottom: 1rem; border: 1px solid rgba(230, 57, 70, 0.3); transition: 0.3s; }
+        .service-img:hover { transform: scale(1.02); border-color: #e63946; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #e63946; border-radius: 10px; }
+        section { scroll-margin-top: 80px; }
+        a { color: #000; text-decoration: none; }
+        a:hover { color: #e63946; }
+        .black-top-bar { background: #000000; color: white; padding: 1rem 1.5rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+        .left-side { display: flex; flex-direction: column; gap: 0.4rem; }
+        .left-side .contact-phone, .left-side .contact-email { font-size: 0.9rem; }
+        .left-side .contact-phone i, .left-side .contact-email i { color: #e63946; margin-right: 0.5rem; }
+        .left-side .logo-text { font-size: 1.3rem; font-weight: 800; color: #FBBF24; margin-top: 0.2rem; }
+        .right-side { display: flex; flex-direction: column; gap: 0.8rem; align-items: flex-end; }
+        .social-icons { display: flex; gap: 1rem; }
+        .social-icons a { color: white; font-size: 1.2rem; transition: 0.3s; }
+        .social-icons a:hover { color: #e63946; }
+        .hamburger { background: none; border: none; color: white; font-size: 1.8rem; cursor: pointer; width: fit-content; transition: 0.3s; }
+        .hamburger:hover { color: #e63946; }
+        @media (max-width: 640px) { .black-top-bar { flex-direction: row; justify-content: space-between; } .right-side { align-items: flex-end; } .left-side { align-items: flex-start; } }
+        .menu-dropdown { display: none; position: absolute; top: 80px; right: 1.5rem; background: white; border: 1px solid #e0e0e0; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 0.8rem 0; min-width: 160px; z-index: 1000; }
+        .menu-dropdown a { display: block; padding: 0.6rem 1.2rem; color: #000; transition: 0.2s; }
+        .menu-dropdown a:hover { background: #f5f5f5; color: #e63946; }
+        .menu-dropdown.show { display: block; }
+        .getintouch { background: #f9f9f9; border-radius: 1.5rem; padding: 3rem 2rem; text-align: center; margin: 2rem 0; border: 1px solid #e0e0e0; }
+        .getintouch h2 { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; }
+        .getintouch p { font-size: 1rem; color: #555; max-width: 600px; margin: 0 auto 1.5rem auto; }
+        .getintouch .buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .getintouch .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.8rem; border-radius: 40px; font-weight: 600; text-decoration: none; transition: 0.3s; }
+        .getintouch .btn-call { background: #e63946; color: white; }
+        .getintouch .btn-call:hover { background: #ff4d4d; transform: translateY(-3px); }
+        .getintouch .btn-wa { background: #25D366; color: white; }
+        .getintouch .btn-wa:hover { background: #1eab5a; transform: translateY(-3px); }
+        .cta-premium-bar { background: linear-gradient(135deg, #e63946, #ff4d4d); color: white; padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; margin: 1rem 0 0 0; text-align: center; }
+        .cta-premium-bar .cta-text { font-size: 1.2rem; font-weight: 500; }
+        .cta-premium-bar .cta-phone { font-size: 1.5rem; font-weight: 700; letter-spacing: 1px; }
+        .cta-premium-bar .cta-social { display: flex; gap: 1.5rem; justify-content: center; margin-top: 0.5rem; }
+        .cta-premium-bar .cta-social a { color: white; font-size: 1.5rem; transition: 0.3s; }
+        .cta-premium-bar .cta-social a:hover { color: #FBBF24; transform: translateY(-2px); }
+        @media (max-width: 640px) { .cta-premium-bar .cta-text { font-size: 1rem; } .cta-premium-bar .cta-phone { font-size: 1.2rem; } .cta-premium-bar .cta-social a { font-size: 1.2rem; } }
+        .logo-full-width { width: 100%; background-color: #ffffff; padding: 1.5rem 0; display: flex; justify-content: center; align-items: center; margin: 0; }
+        .logo-full-width img { max-width: 260px; width: 100%; height: auto; transition: transform 0.3s ease; }
+        .logo-full-width img:hover { transform: scale(1.02); }
+        @media (max-width: 640px) { .logo-full-width img { max-width: 200px; } }
+        .newsletter-black { background: #000000; color: #ffffff; border-radius: 0; margin-top: 0; }
+        .quote-section { background: #ffffff; padding: 2rem 1.5rem; text-align: center; font-style: italic; color: #555; border-top: 1px solid #e0e0e0; }
+        .footer-black { background: #000000; color: #ffffff; border-top: 1px solid #e63946; padding: 1.5rem; text-align: center; }
+        .footer-black p { margin: 0; color: #ffffff; }
+        .slider-container { position: relative; width: 100%; overflow: hidden; margin: 0; padding: 0; background-color: #000000; }
+        .slider-wrapper { display: flex; transition: transform 0.5s ease-in-out; }
+        .slide { min-width: 100%; flex-shrink: 0; position: relative; height: 520px; background-color: #000; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        @media (max-width: 1024px) { .slide { height: 420px; } }
+        @media (max-width: 768px) { .slide { height: 340px; } }
+        @media (max-width: 640px) { .slide { height: 260px; } }
+        @media (max-width: 480px) { .slide { height: 220px; } }
+        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); color: white; border: none; padding: 12px 16px; cursor: pointer; font-size: 1.5rem; font-weight: bold; border-radius: 50%; transition: 0.3s; z-index: 10; }
+        .slider-btn:hover { background: #e63946; }
+        .prev-btn { left: 15px; }
+        .next-btn { right: 15px; }
+        .dots-container { position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10; }
+        .dot { width: 10px; height: 10px; background: rgba(255,255,255,0.6); border-radius: 50%; cursor: pointer; transition: 0.3s; }
+        .dot.active { background: #e63946; transform: scale(1.2); }
+        @media (max-width: 640px) { .slider-btn { padding: 6px 10px; font-size: 1rem; } }
+        .hero-section { padding-top: 2rem; padding-bottom: 2rem; }
+        @media (max-width: 768px) { .hero-section { padding-top: 1.5rem; padding-bottom: 1.5rem; } }
+        .services-wrapper { text-align: center; margin-bottom: 3rem; }
+        .services-main-heading { font-size: 2rem; font-weight: 700; color: #e63946; letter-spacing: 1px; margin-bottom: 0.5rem; }
+        .services-sub-heading { font-size: 2.2rem; font-weight: 800; background: linear-gradient(135deg, #e63946, #ff4d4d); -webkit-background-clip: text; background-clip: text; color: transparent; display: inline-block; padding-bottom: 0.5rem; border-bottom: 3px solid #e63946; }
+        @media (min-width: 768px) { .services-main-heading { font-size: 2.5rem; } .services-sub-heading { font-size: 3rem; } }
+        .about-center { text-align: center; }
+        .about-center .card { text-align: center; }
+        .about-center .about-img { margin: 0 auto 1rem auto; }
+        .about-center p { text-align: center; }
+        .ai-system-section {
+            background: linear-gradient(135deg, #0a0a2a 0%, #1a1a3e 100%);
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            margin: 3rem auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .ai-system-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="none" stroke="rgba(230,57,70,0.05)" stroke-width="0.5" d="M10,10 L90,10 M10,30 L90,30 M10,50 L90,50 M10,70 L90,70 M10,90 L90,90 M10,10 L10,90 M30,10 L30,90 M50,10 L50,90 M70,10 L70,90 M90,10 L90,90"/></svg>');
+            background-size: 30px 30px;
+            opacity: 0.3;
+        }
+        .ai-system-title {
+            font-size: 2rem;
+            font-weight: 800;
+            text-align: center;
+            background: linear-gradient(135deg, #e63946, #ff4d4d, #FBBF24);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        .ai-system-subtitle {
+            text-align: center;
+            color: #ccc;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .ai-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .ai-feature-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 1rem;
+            padding: 1.2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(230,57,70,0.3);
+            transition: all 0.3s;
+        }
+        .ai-feature-card:hover {
+            border-color: #e63946;
+            transform: translateY(-5px);
+            background: rgba(230,57,70,0.1);
+        }
+        .ai-feature-card i {
+            font-size: 1.8rem;
+            color: #e63946;
+            margin-bottom: 0.5rem;
+        }
+        .ai-feature-card h4 {
+            color: white;
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+        .ai-feature-card p {
+            color: #aaa;
+            font-size: 0.75rem;
+        }
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0 1rem;
+        }
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        .download-btn-web {
+            background: linear-gradient(135deg, #e63946, #ff4d4d);
+            color: white;
+            border: none;
+        }
+        .download-btn-web:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(230,57,70,0.4);
+            color: white;
+        }
+        .download-btn-apk {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid #e63946;
+        }
+        .download-btn-apk:hover {
+            background: #e63946;
+            transform: translateY(-3px);
+            color: white;
+        }
+        .free-note {
+            text-align: center;
+            color: #888;
+            font-size: 0.7rem;
+            margin-top: 1rem;
+        }
+        @media (max-width: 768px) {
+            .ai-system-title { font-size: 1.4rem; }
+            .ai-features-grid { gap: 1rem; }
+            .download-btn { padding: 0.6rem 1.2rem; font-size: 0.75rem; }
+        }
+        .fortune-section {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+            border-radius: 2rem;
+            padding: 2rem;
+            margin: 2rem auto;
+            text-align: center;
+            border: 1px solid rgba(230,57,70,0.2);
+        }
+        .fortune-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #e63946, #ff4d4d);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        .fortune-quote {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #e63946;
+            margin-bottom: 0.5rem;
+        }
+        .fortune-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .fortune-badges span {
+            background: rgba(230,57,70,0.1);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: #e63946;
+        }
+        
+        /* Mode Toggle */
+        .mode-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .mode-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid #e63946;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+        .mode-btn.active {
+            background: #e63946;
+            color: white;
+        }
+        .mode-btn:hover {
+            background: #e63946;
+        }
+    </style>
+</head>
+<body>
+
+<div class="black-top-bar">
+    <div class="left-side">
+        <div class="contact-phone"><i class="fas fa-phone-alt"></i> +91 8381 960 004</div>
+        <div class="contact-email"><i class="fas fa-envelope"></i> hfdvision16@gmail.com</div>
+        <div class="logo-text">HFD VISION AI</div>
+    </div>
+    <div class="right-side">
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/company/hfd-vision/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/share/1GfYEYsxJF/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://youtube.com/@hfdvisionpvt.ltd....6241?si=KQ_KW-fgfyf6g8VQ" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+        <button class="hamburger" id="hamburgerBtn">☰</button>
+    </div>
+</div>
+
+<div id="menuDropdown" class="menu-dropdown">
+    <a href="#home">Home</a>
+    <a href="#ai">AI System</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+</div>
+
+<div class="slider-container">
+    <div class="slider-wrapper" id="sliderWrapper">
+        <div class="slide"><img src="https://i.ibb.co/TxZjRMx1/file-00000000b69071fa8afbfb428946d82f.png" alt="Slide 1"></div>
+        <div class="slide"><img src="https://i.ibb.co/0RhwvTX3/file-00000000494471faac6d8cf3688667b0.png" alt="Slide 2"></div>
+        <div class="slide"><img src="https://i.ibb.co/zprRjf0/file-00000000ae8c71fa854177e57daee26d.png" alt="Slide 3"></div>
+    </div>
+    <button class="slider-btn prev-btn" id="prevBtn">❮</button>
+    <button class="slider-btn next-btn" id="nextBtn">❯</button>
+    <div class="dots-container" id="dotsContainer"></div>
+</div>
+
+<!-- Hero Section -->
+<section id="home" class="hero-section flex items-center justify-center">
+    <div class="container mx-auto px-4 md:px-6 text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#e63946]/10 border border-[#e63946]/30 text-[#e63946] text-sm font-semibold mb-6">
+            <i class="fas fa-robot"></i> THE FUTURE OF CONSTRUCTION
+        </div>
+        <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
+            <span class="gradient-red">HFD Vision</span><br>
+            <span class="text-2xl md:text-3xl text-gray-700 mt-2 block">AI Driven & Robotic Construction Automation Machine And System</span>
+        </h1>
+        <p class="text-xl text-gray-600 italic mt-6">"Human error is possible. Technology ensures precision."</p>
+        <p class="text-gray-600 mt-4 max-w-2xl mx-auto">We eliminate manual errors, labor dependency, delays, and quality inconsistency — making construction faster, cheaper, and more reliable.</p>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-16 border-y border-gray-200">
+    <div class="container mx-auto px-4 md:px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div><div class="stat-number">30+</div><div class="text-gray-600">Years Experience</div></div>
+            <div><div class="stat-number">100%</div><div class="text-gray-600">Precision</div></div>
+            <div><div class="stat-number">24/7</div><div class="text-gray-600">Automation</div></div>
+            <div><div class="stat-number">0%</div><div class="text-gray-600">Human Error</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Fortune 500 Section -->
+<section class="py-8">
+    <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+        <div class="fortune-section">
+            <div class="fortune-badge">🏆 FORTUNE 500 STYLE LIFETIME MILESTONE 🏆</div>
+            <div class="fortune-quote">"Success lies beyond fear"</div>
+            <div class="mt-4">
+                <p class="text-gray-700 text-lg">This website is built by <span class="font-bold text-[#e63946]">Najmul Arfeen Adnan</span> along with <span class="font-bold text-[#e63946]">AI</span>.</p>
+                <p class="text-xl font-bold text-[#e63946] mt-3">Courage and AI — that is the real capital.</p>
+                <p class="text-gray-600 italic mt-4">This is not just a website, but a Lifetime Milestone. If we can do it, so can you. Never give up.</p>
+            </div>
+            <div class="fortune-badges">
+                <span>🌟 Hope</span>
+                <span>💪 Never Give Up</span>
+                <span>🚀 AI for Everyone</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HFD Vision AI Advanced Intelligence System Section -->
+<section id="ai" class="py-12">
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+        <div class="ai-system-section">
+            <h2 class="ai-system-title">
+                <i class="fas fa-brain"></i> HFD Vision AI<br>
+                Advanced Intelligence System
+            </h2>
+            <p class="ai-system-subtitle">
+                Experience the power of AI — A next-generation intelligent assistant designed to help with knowledge, problem-solving, and real-world tasks.
+            </p>
+            
+            <div class="ai-features-grid">
+                <div class="ai-feature-card">
+                    <i class="fas fa-globe"></i>
+                    <h4>Multi-domain Intelligence</h4>
+                    <p>Across industries & sectors</p>
+                </div>
+                <div class="ai-feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Real-time Responses</h4>
+                    <p>Instant answers, no delay</p>
+                </div>
+                <div class="ai-feature-card">
+                    <i class="fas fa-language"></i>
+                    <h4>Multi-language Support</h4>
+                    <p>Hindi, English & more</p>
+                </div>
+                <div class="ai-feature-card">
+                    <i class="fas fa-microphone"></i>
+                    <h4>Voice-enabled</h4>
+                    <p>Speak naturally, get answers</p>
+                </div>
+            </div>
+            
+            <!-- Mode Selection Toggle -->
+            <div class="mode-toggle">
+                <button id="constructionModeBtn" class="mode-btn active">🏗️ Construction AI</button>
+                <button id="smartModeBtn" class="mode-btn">🚀 HFD Vision AI (Smart)</button>
+            </div>
+            
+            <div class="download-buttons">
+                <a href="javascript:void(0)" id="webAppLink" class="download-btn download-btn-web">
+                    <i class="fas fa-globe"></i> Start Using HFD Vision AI
+                </a>
+                <a href="/download/hfd-vision.apk" id="apkDownloadLink" class="download-btn download-btn-apk" download>
+                    <i class="fab fa-android"></i> Download Secure APK
+                </a>
+            </div>
+            
+            <div class="free-note">
+                <i class="fas fa-info-circle"></i> Free version available. Construction AI gives instant construction answers. Smart AI uses advanced technology for general knowledge.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-20 bg-gray-50 about-center">
+    <div class="container mx-auto px-4 md:px-6 max-w-5xl">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 gradient-red">About HFD Vision</h2>
+        <div class="card bg-white p-8 md:p-12">
+            <img src="https://i.ibb.co/Mk7vNCRY/20260207-193404.jpg" alt="Najmul Arfeen Adnan" class="about-img">
+            <div>
+                <h3 class="text-2xl md:text-3xl font-semibold gradient-red">Najmul Arfeen Adnan — Founder</h3>
+                <p class="text-gray-600 mt-2">"Humanity | Freedom | Dignity"</p>
+            </div>
+            <div class="bg-[#e63946]/5 border-l-4 border-[#e63946] p-5 rounded-xl my-6 text-gray-700" style="text-align: center; border-left: 4px solid #e63946 !important;">
+                <i class="fas fa-brain text-[#e63946] mr-2"></i> <strong>Honest communication:</strong> I have had dyslexia since childhood. During discussions, I will be more comfortable communicating in Hindi.
+            </div>
+            <p class="text-gray-700 leading-relaxed text-lg">My formal education is up to 8th grade, but I have <span class="text-[#e63946] font-bold">30+ years of practical experience</span> in construction. I have worked on-site, created AutoCAD drawings myself, and deeply understand ground-level challenges.</p>
+            <div class="mt-10 p-6 bg-gradient-to-r from-[#e63946]/5 to-transparent rounded-xl text-center text-gray-700 text-xl italic border-l-4 border-[#e63946]">
+                <i class="fas fa-quote-left text-[#e63946] mr-2"></i> When Najmul Arfeen Adnan and AI together can build this website, then anyone in the world can turn their dreams into reality.
+                <i class="fas fa-quote-right text-[#e63946] ml-2"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Get in Touch -->
+<div class="container mx-auto px-4 md:px-6">
+    <div class="getintouch">
+        <h2 class="gradient-red">Get in Touch</h2>
+        <p>Have a project in mind? Let's discuss how our AI & robotic automation can transform your construction.</p>
+        <div class="buttons">
+            <a href="tel:+918381960004" class="btn btn-call"><i class="fas fa-phone-alt"></i> Call Us Now</a>
+            <a href="https://wa.me/918381960004" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp Chat</a>
+        </div>
+    </div>
+</div>
+
+<!-- Services Section -->
+<section id="services" class="py-20">
+    <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+        <div class="services-wrapper">
+            <div class="services-main-heading">Service</div>
+            <div class="services-sub-heading">ROBOTIC AUTOMATION</div>
+        </div>
+        <div class="text-center mb-8">
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Fully Automated Factories and Industry Robotic & AI Solutions</p>
+            <div class="flex justify-center gap-4 mt-4">
+                <span class="inline-block px-4 py-2 bg-[#e63946]/10 rounded-full text-sm font-semibold text-[#e63946]">Increase Speed</span>
+                <span class="inline-block px-4 py-2 bg-[#e63946]/10 rounded-full text-sm font-semibold text-[#e63946]">Reduce Cost</span>
+            </div>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="card bg-white text-center">
+                <img src="https://i.ibb.co/tT08BQQN/copilot-image-1776079837013.png" alt="Pharma Factory" class="service-img">
+                <h3 class="text-xl font-semibold mb-2 text-[#e63946]">Pharma Factory</h3>
+                <p class="text-gray-600 text-sm">AI-driven robotics for pharmaceutical production lines.</p>
+            </div>
+            <div class="card bg-white text-center">
+                <img src="https://i.ibb.co/WWzVTM8G/copilot-image-1776079865339.png" alt="Car Factory" class="service-img">
+                <h3 class="text-xl font-semibold mb-2 text-[#e63946]">Car Factory</h3>
+                <p class="text-gray-600 text-sm">Automated assembly and welding for automotive manufacturing.</p>
+            </div>
+            <div class="card bg-white text-center">
+                <img src="https://i.ibb.co/b5Zm0zjf/copilot-image-1776079875298.png" alt="Food Factory" class="service-img">
+                <h3 class="text-xl font-semibold mb-2 text-[#e63946]">Food Factory</h3>
+                <p class="text-gray-600 text-sm">Hygienic, high-speed robotic systems for food processing.</p>
+            </div>
+            <div class="card bg-white text-center">
+                <img src="https://i.ibb.co/Rkrv7fV8/copilot-image-1776080436131.png" alt="Packaging Factory" class="service-img">
+                <h3 class="text-xl font-semibold mb-2 text-[#e63946]">Packaging Factory</h3>
+                <p class="text-gray-600 text-sm">Intelligent packaging lines with vision-guided robotics.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4 md:px-6 max-w-5xl">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 gradient-red">Let's Connect</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="card bg-white text-center"><i class="fas fa-phone-alt text-4xl text-[#e63946] mb-3"></i><a href="tel:+918381960004" class="text-xl hover:text-[#e63946] block text-gray-800">+91 8381 960 004</a></div>
+            <div class="card bg-white text-center"><i class="fab fa-whatsapp text-4xl text-[#25D366] mb-3"></i><a href="https://wa.me/918381960004" target="_blank" class="text-xl hover:text-[#25D366] block text-gray-800">WhatsApp Chat</a></div>
+            <div class="card bg-white text-center"><i class="fas fa-envelope text-4xl text-[#e63946] mb-3"></i><a href="mailto:hfdvision16@gmail.com" class="text-xl hover:text-[#e63946] block text-gray-800">hfdvision16@gmail.com</a></div>
+            <div class="card bg-white text-center"><i class="fas fa-map-marker-alt text-4xl text-[#e63946] mb-3"></i><p class="text-xl text-gray-800">Lucknow, India</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Bar -->
+<div class="cta-premium-bar">
+    <div class="cta-text">Do you have any projects?</div>
+    <div class="cta-phone">Call us +91 8381 960 004</div>
+    <div class="cta-social">
+        <a href="https://www.linkedin.com/company/hfd-vision/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.facebook.com/share/1GfYEYsxJF/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://youtube.com/@hfdvisionpvt.ltd....6241?si=KQ_KW-fgfyf6g8VQ" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+</div>
+
+<!-- Logo -->
+<div class="logo-full-width">
+    <img src="https://i.ibb.co/CpSqZj8T/copilot-image-1776168070208.png" alt="HFD Vision Official Logo">
+</div>
+
+<!-- Newsletter Section -->
+<section class="newsletter-black py-16">
+    <div class="container mx-auto px-4 md:px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Newsletter</h2>
+        <p class="text-gray-300 mb-6">Subscribe to get latest updates and offers.</p>
+        <div class="max-w-md mx-auto">
+            <form onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+                <input type="email" placeholder="Email address" class="w-full px-4 py-3 rounded-lg mb-4 text-black" required>
+                <div class="flex items-center justify-center gap-2 mb-4">
+                    <input type="checkbox" id="termsCheckbox" required>
+                    <label for="termsCheckbox" class="text-gray-300 text-sm">I agree to all your terms and policies</label>
+                </div>
+                <button type="submit" class="btn-red w-full py-3 rounded-lg font-semibold">Subscribe</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Quote Section -->
+<div class="quote-section">
+    <p class="italic">"We are building a multi-domain AI system for real-world problem solving." — Najmul Arfeen Adnan</p>
+</div>
+
+<!-- Footer -->
+<footer class="footer-black">
+    <p>© 2016–2026 HFD VISION Business Solutions. All Rights Reserved.</p>
+</footer>
+
+<!-- Dual AI Chatbot Modal -->
+<div id="constructionAI" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 9999; display: none; flex-direction: column; overflow: hidden; font-family: 'Inter', sans-serif;">
+    <div style="background: linear-gradient(135deg, #e63946, #ff4d4d); color: white; padding: 18px 16px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <i class="fas fa-hard-hat" style="font-size: 26px;"></i>
+            <div>
+                <strong style="font-size: 18px;" id="chatModalTitle">HFD Vision AI</strong>
+                <p style="font-size: 11px; margin: 0; opacity: 0.9;" id="chatModalSubtitle">Construction Mode | Voice Enabled</p>
+            </div>
+        </div>
+        <button id="closeConAI" style="background: none; border: none; color: white; font-size: 28px; cursor: pointer;">✕</button>
+    </div>
+    <div style="background: #1a1a2e; color: white; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 12px;">
+        <span><i class="fas fa-microphone"></i> Voice ready</span>
+        <span id="voiceStatus" style="color: #4ade80;"><i class="fas fa-circle"></i> Listening...</span>
+    </div>
+    <div style="background: #fff3cd; color: #856404; padding: 10px 16px; font-size: 12px; text-align: center; border-bottom: 1px solid #ffeeba;">
+        <i class="fas fa-exclamation-triangle"></i> HFD Vision AI may make mistakes. Verify important information.
+    </div>
+    <div id="conChatMessages" style="flex: 1; overflow-y: auto; padding: 16px; background: #f0f2f5;">
+        <div style="display: flex; margin-bottom: 16px;">
+            <div style="background: #e63946; color: white; padding: 12px 16px; border-radius: 20px; border-bottom-left-radius: 5px; max-width: 85%; font-size: 14px;">
+                <i class="fas fa-robot"></i> <strong id="welcomeMsg">HFD Vision AI - Construction Mode</strong><br>
+                Namaste! Main aapki help karne ke liye hoon.<br>
+                📍 Construction kaise karein?<br>
+                📍 Robotic automation kitne mein?<br>
+                📍 General knowledge?<br>
+                🎤 Aap bol kar bhi poochh sakte ho
+            </div>
+        </div>
+    </div>
+    <div style="padding: 16px; background: white; border-top: 1px solid #e0e0e0;">
+        <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+            <button id="voiceBtn" style="background: #e63946; color: white; border: none; width: 48px; height: 48px; border-radius: 50%; cursor: pointer; font-size: 20px;"><i class="fas fa-microphone"></i></button>
+            <input type="text" id="conChatInput" placeholder="Ya yahan likhiye..." style="flex: 1; padding: 12px 16px; border: 1px solid #ddd; border-radius: 30px; outline: none; font-size: 15px;">
+            <button id="sendConMsg" style="background: #e63946; color: white; border: none; width: 48px; height: 48px; border-radius: 50%; cursor: pointer;"><i class="fas fa-paper-plane"></i></button>
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+            <button class="quickQ" data-q="Construction automation kya hai?" style="background: #f0f0f0; border: none; padding: 8px 16px; border-radius: 25px; font-size: 12px; cursor: pointer;">🤖 Automation</button>
+            <button class="quickQ" data-q="Robot factory ka price?" style="background: #f0f0f0; border: none; padding: 8px 16px; border-radius: 25px; font-size: 12px; cursor: pointer;">💰 Price</button>
+            <button class="quickQ" data-q="Contact number?" style="background: #f0f0f0; border: none; padding: 8px 16px; border-radius: 25px; font-size: 12px; cursor: pointer;">📞 Contact</button>
+            <button class="quickQ" data-q="Tell me about artificial intelligence" style="background: #f0f0f0; border: none; padding: 8px 16px; border-radius: 25px; font-size: 12px; cursor: pointer;">🧠 AI Info</button>
+        </div>
+    </div>
+</div>
+
+<button id="openConAI" style="position: fixed; bottom: 20px; right: 20px; background: linear-gradient(135deg, #e63946, #ff4d4d); color: white; border: none; padding: 14px 24px; border-radius: 50px; cursor: pointer; z-index: 9998; font-weight: 700; box-shadow: 0 5px 20px rgba(230,57,70,0.4); display: flex; align-items: center; gap: 10px; font-size: 14px;">
+    <i class="fas fa-robot" style="font-size: 18px;"></i> AI Assistant <i class="fas fa-microphone" style="font-size: 14px;"></i>
+</button>
+
+<script>
+    // ========== CONSTRUCTION KNOWLEDGE (LOCAL AI) ==========
+    const constructionKnowledge = [
+        { keywords: ["construction", "building", "site", "civil"], answer: "HFD Vision AI-driven construction automation machines provide karta hai. Hum manual errors khatam karte hain, speed 300% badhate hain, aur 24/7 work possible hai. Call karein +91 8381 960 004." },
+        { keywords: ["robot", "automation", "automatic", "machine"], answer: "Hum fully automated robotic systems provide karte hain: Pharma, Car, Food, aur Packaging factories ke liye. AI vision-guided robotics se precision 100% hai." },
+        { keywords: ["pharma", "medicine", "tablet", "drug"], answer: "Pharma Factory mein advanced robotic arms lagaye gaye hain. AI-driven production lines se speed 40% badh jaati hai aur contamination zero hoti hai." },
+        { keywords: ["car", "automobile", "vehicle", "assembly"], answer: "Car Factory mein advanced robotic arms hain jo welding, painting aur assembly full automation se karte hain. Production time 50% kam hota hai." },
+        { keywords: ["food", "khana", "processing", "hygienic"], answer: "Food Factory mein red robotic systems hain jo hygienic conditions mein high-speed processing karte hain. Human touch nahi, isliye quality consistent hai." },
+        { keywords: ["packaging", "packing", "wrap", "bottling"], answer: "Packaging Factory mein yellow robotic vision-guided lines hain jo intelligent packaging karti hain. Speed 60% badh jaati hai." },
+        { keywords: ["price", "cost", "kitna", "rate", "charges", "fees"], answer: "Project scope par depend karta hai. Ek robotic arm system ₹8-15 lakh se start hota hai. Full factory automation ₹50 lakh - ₹2 crore. Call karein +91 8381 960 004 for free consultation." },
+        { keywords: ["contact", "phone", "number", "call", "whatsapp", "email"], answer: "📞 Call/WhatsApp: +91 8381 960 004\n📧 Email: hfdvision16@gmail.com\n📍 Location: Lucknow, India" },
+        { keywords: ["time", "speed", "fast", "delivery"], answer: "Humari robotic systems 24/7 kaam karti hain. Manual se 3x fast (300% speed boost). Installation time: 2-4 weeks." },
+        { keywords: ["quality", "precision", "accuracy", "error"], answer: "100% precision with zero human error. AI vision systems check every product." },
+        { keywords: ["founder", "najmul", "adnan", "owner"], answer: "Founder: Najmul Arfeen Adnan - 30+ years practical construction experience." },
+        { keywords: ["about", "company", "hfd", "vision"], answer: "HFD Vision since 1980. Motto: Humanity. Freedom. Dignity. AI driven robotic construction automation." },
+        { keywords: ["hello", "hi", "namaste", "hey"], answer: "Namaste! Main HFD Vision AI hoon. Aap construction ya general knowledge poochh sakte ho." },
+        { keywords: ["thanks", "thank you", "dhanyawad"], answer: "Aapka dhanyawad! Kisi aur madad ke liye call karein +91 8381 960 004." }
+    ];
+    
+    function getConstructionReply(message) {
+        let msg = message.toLowerCase();
+        for(let item of constructionKnowledge) {
+            for(let keyword of item.keywords) {
+                if(msg.includes(keyword)) return item.answer;
+            }
+        }
+        return "Main construction-related sawaalon ke liye hoon. Kripya call karein +91 8381 960 004. Ya options try karein: Automation, Price, Contact, Pharma, Car, Food, Packaging.";
+    }
+    
+    // ========== GEMINI API (SMART AI) ==========
+    async function getGeminiReply(message) {
+        try {
+            const response = await fetch('/.netlify/functions/gemini-ai', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: message })
+            });
+            const data = await response.json();
+            return data.reply || data.error || "Koi jawab nahi mila. Thoda baad try karein.";
+        } catch (error) {
+            return "Network error. Kripya check karein aur punah prayas karein.";
+        }
+    }
+    
+    // ========== CHATBOT UI LOGIC ==========
+    let currentMode = "construction"; // "construction" or "smart"
+    
+    function addMessage(text, isUser) {
+        let chatDiv = document.getElementById('conChatMessages');
+        const wrapper = document.createElement('div');
+        wrapper.style.textAlign = isUser ? "right" : "left";
+        wrapper.style.margin = "8px";
+        const bubble = document.createElement('span');
+        bubble.style.display = "inline-block";
+        bubble.style.backgroundColor = isUser ? "#e63946" : "#ddd";
+        bubble.style.color = isUser ? "white" : "black";
+        bubble.style.padding = "10px 15px";
+        bubble.style.borderRadius = "20px";
+        bubble.style.maxWidth = "85%";
+        bubble.style.fontSize = "14px";
+        bubble.innerText = text;
+        wrapper.appendChild(bubble);
+        chatDiv.appendChild(wrapper);
+        chatDiv.scrollTop = chatDiv.scrollHeight;
+    }
+    
+    async function processMessage(userMsg) {
+        if(!userMsg.trim()) return;
+        addMessage(userMsg, true);
+        
+        // Typing indicator
+        const typingDiv = document.createElement('div');
+        typingDiv.style.textAlign = "left";
+        typingDiv.style.margin = "8px";
+        const typingBubble = document.createElement('span');
+        typingBubble.style.display = "inline-block";
+        typingBubble.style.backgroundColor = "#ddd";
+        typingBubble.style.color = "#666";
+        typingBubble.style.padding = "10px 15px";
+        typingBubble.style.borderRadius = "20px";
+        typingBubble.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Soch raha hoon...';
+        typingDiv.appendChild(typingBubble);
+        document.getElementById('conChatMessages').appendChild(typingDiv);
+        document.getElementById('conChatMessages').scrollTop = document.getElementById('conChatMessages').scrollHeight;
+        
+        let reply;
+        if (currentMode === "construction") {
+            reply = getConstructionReply(userMsg);
+        } else {
+            reply = await getGeminiReply(userMsg);
+        }
+        
+        typingDiv.remove();
+        addMessage(reply, false);
+        
+        // Voice
+        if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(reply);
+            utterance.lang = 'hi-IN';
+            utterance.rate = 0.9;
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(utterance);
+        }
+    }
+    
+    // ========== VOICE RECOGNITION ==========
+    let recognition = null;
+    if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        recognition = new SpeechRecognition();
+        recognition.lang = 'hi-IN';
+        recognition.continuous = false;
+        recognition.interimResults = false;
+        recognition.onstart = () => {
+            document.getElementById('voiceStatus').innerHTML = '<i class="fas fa-circle" style="color: #f97316;"></i> Sun raha hu... Boliye';
+            document.getElementById('voiceBtn').style.background = '#ff4d4d';
+        };
+        recognition.onend = () => {
+            document.getElementById('voiceStatus').innerHTML = '<i class="fas fa-circle" style="color: #4ade80;"></i> Ready';
+            document.getElementById('voiceBtn').style.background = '#e63946';
+        };
+        recognition.onresult = (event) => {
+            const transcript = event.results[0][0].transcript;
+            document.getElementById('conChatInput').value = transcript;
+            processMessage(transcript);
+        };
+    }
+    
+    // ========== EVENT LISTENERS ==========
+    document.getElementById('openConAI').onclick = () => {
+        document.getElementById('constructionAI').style.display = 'flex';
+        document.getElementById('openConAI').style.display = 'none';
+    };
+    document.getElementById('closeConAI').onclick = () => {
+        document.getElementById('constructionAI').style.display = 'none';
+        document.getElementById('openConAI').style.display = 'flex';
+        window.speechSynthesis.cancel();
+    };
+    document.getElementById('sendConMsg').onclick = () => {
+        const input = document.getElementById('conChatInput');
+        processMessage(input.value);
+        input.value = '';
+    };
+    document.getElementById('conChatInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') document.getElementById('sendConMsg').click();
+    });
+    document.getElementById('voiceBtn').onclick = () => {
+        if (recognition) recognition.start();
+        else alert('Voice support ke liye Chrome ya Edge use karein.');
+    };
+    document.querySelectorAll('.quickQ').forEach(btn => {
+        btn.onclick = () => {
+            const q = btn.getAttribute('data-q');
+            document.getElementById('conChatInput').value = q;
+            processMessage(q);
+        };
+    });
+    
+    // ========== MODE TOGGLE ==========
+    document.getElementById('constructionModeBtn').onclick = () => {
+        currentMode = "construction";
+        document.getElementById('constructionModeBtn').classList.add('active');
+        document.getElementById('smartModeBtn').classList.remove('active');
+        document.getElementById('chatModalTitle').innerText = 'HFD Vision AI';
+        document.getElementById('chatModalSubtitle').innerHTML = 'Construction Mode | Local Knowledge';
+        document.getElementById('welcomeMsg').innerHTML = 'HFD Vision AI - Construction Mode';
+        document.getElementById('conChatMessages').innerHTML = '';
+        addMessage("Namaste! Main Construction AI hoon. Mujhse construction, automation, pharma, car, price, contact etc. poochhiye.", false);
+    };
+    
+    document.getElementById('smartModeBtn').onclick = () => {
+        currentMode = "smart";
+        document.getElementById('smartModeBtn').classList.add('active');
+        document.getElementById('constructionModeBtn').classList.remove('active');
+        document.getElementById('chatModalTitle').innerText = 'HFD Vision AI';
+        document.getElementById('chatModalSubtitle').innerHTML = 'Smart Mode | General Knowledge';
+        document.getElementById('welcomeMsg').innerHTML = 'HFD Vision AI - Smart Mode';
+        document.getElementById('conChatMessages').innerHTML = '';
+        addMessage("Namaste! Main HFD Vision AI (Smart Mode) hoon. Aap general knowledge, coding, maths, ya kuch bhi poochh sakte ho.", false);
+    };
+    
+    // ========== HAMBURGER MENU & SLIDER ==========
+    const hamburger = document.getElementById('hamburgerBtn');
+    const dropdown = document.getElementById('menuDropdown');
+    if (hamburger && dropdown) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdown.classList.toggle('show');
+        });
+        document.addEventListener('click', function(event) {
+            if (!hamburger.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+                dropdown.classList.remove('show');
+            }
+        });
+    });
+    
+    const sliderWrapper = document.getElementById('sliderWrapper');
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const dotsContainer = document.getElementById('dotsContainer');
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    let autoSlideInterval;
+    function updateSlider() {
+        sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+        document.querySelectorAll('.dot').forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+    function nextSlide() { currentIndex = (currentIndex + 1) % totalSlides; updateSlider(); }
+    function prevSlide() { currentIndex = (currentIndex - 1 + totalSlides) % totalSlides; updateSlider(); }
+    function startAutoSlide() { autoSlideInterval = setInterval(nextSlide, 4000); }
+    function stopAutoSlide() { clearInterval(autoSlideInterval); }
+    prevBtn.addEventListener('click', () => { prevSlide(); stopAutoSlide(); startAutoSlide(); });
+    nextBtn.addEventListener('click', () => { nextSlide(); stopAutoSlide(); startAutoSlide(); });
+    slides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === currentIndex) dot.classList.add('active');
+        dot.addEventListener('click', () => { currentIndex = index; updateSlider(); stopAutoSlide(); startAutoSlide(); });
+        dotsContainer.appendChild(dot);
+    });
+    updateSlider();
+    startAutoSlide();
+    sliderWrapper.addEventListener('mouseenter', stopAutoSlide);
+    sliderWrapper.addEventListener('mouseleave', startAutoSlide);
+    
+    // Start Using button opens chatbot
+    document.getElementById('webAppLink').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('openConAI').click();
+    });
+</script>
+</body>
+</html>
